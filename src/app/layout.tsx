@@ -5,6 +5,8 @@ import { ThemeProvider } from "@mui/material/styles";
 
 import "./globals.css";
 import theme from "~/theme";
+import { Container } from "@mui/material";
+import TheMainLayout from "~/components/layouts/TheMainLayout";
 
 const kanit = Kanit({
   weight: ["300", "400", "500", "700"],
@@ -27,7 +29,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={kanit.variable}>
         <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+          <ThemeProvider theme={theme}>
+            <Container>
+              <TheMainLayout>{children}</TheMainLayout>
+            </Container>
+          </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
