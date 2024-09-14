@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Container, Stack } from "@mui/material";
 import { PropsWithChildren } from "react";
 import TheMainHeader from "./TheMainHeader";
 import TheMainFooter from "./TheMainFooter";
@@ -7,8 +7,12 @@ const TheMainLayout = ({ children }: PropsWithChildren) => {
   return (
     <Stack minHeight="100vh">
       <TheMainHeader />
-      <Box flex={1}>{children}</Box>
-      <TheMainFooter />
+      <Box flex={1}>
+        <Container>{children}</Container>
+      </Box>
+      <Container>
+        <TheMainFooter />
+      </Container>
     </Stack>
   );
 };

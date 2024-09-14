@@ -5,12 +5,11 @@ import { ThemeProvider } from "@mui/material/styles";
 
 import "./globals.css";
 import theme from "~/theme";
-import { Container } from "@mui/material";
 import TheMainLayout from "~/components/layouts/TheMainLayout";
 
 const kanit = Kanit({
-  weight: ["300", "400", "500", "700"],
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["thai", "latin"],
   display: "swap",
   variable: "--font-kanit",
 });
@@ -27,12 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={kanit.variable}>
+      <body className={kanit.className}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
-            <Container>
-              <TheMainLayout>{children}</TheMainLayout>
-            </Container>
+            <TheMainLayout>{children}</TheMainLayout>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
