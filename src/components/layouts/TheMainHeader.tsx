@@ -76,66 +76,63 @@ const TheMainHeader = () => {
   );
 
   return (
-    <>
-      <Box
-        component="header"
-        sx={{
-          width: '100%',
-          alignSelf: "flex-start",
-          position: "sticky",
-          top: 0,
-          py: {
-            xs: 1,
-            md: 1.5,
-          },
-          background: "rgba(0,0,0, 0.3)",
-        }}
-      >
-        <Container>
+    <Box
+      component="header"
+      sx={{
+        width: "100%",
+        position: "fixed",
+        top: 0,
+        py: {
+          xs: 1,
+          md: 1.5,
+        },
+        background: "rgba(0,0,0, 0.3)",
+      }}
+    >
+      <Container>
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+          gap={2}
+        >
           <Stack
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-            gap={2}
+            sx={{
+              display: {
+                xs: "flex",
+                md: "none",
+              },
+              alignItems: "center",
+            }}
           >
-            <Stack
-              sx={{
-                display: {
-                  xs: "flex",
-                  md: "none",
-                },
-                alignItems: "center",
-              }}
-            >
-              <Menu sx={{ color: "#fff" }} onClick={handleSidebarToggle} />
-              <Sidebar
-                menuContent={menuContent}
-                isOpen={isSidebar}
-                onDrawerToggle={handleSidebarToggle}
-              />
-            </Stack>
-            <Stack alignItems="center">
-              <NextLink href="/">
-                <Avatar sx={{ width: 50, height: 50 }} src="/logo.png" />
-              </NextLink>
-            </Stack>
-            <Stack direction="row" gap={1}>
-              {menuItems.map((menuItem) => {
-                return (
-                  <Link
-                    key={menuItem.href}
-                    component={NextLink}
-                    href={menuItem.href}
-                  >
-                    {menuItem.label}
-                  </Link>
-                );
-              })}
-            </Stack>
+            <Menu sx={{ color: "#fff" }} onClick={handleSidebarToggle} />
+            <Sidebar
+              menuContent={menuContent}
+              isOpen={isSidebar}
+              onDrawerToggle={handleSidebarToggle}
+            />
           </Stack>
-        </Container>
-      </Box>
-    </>
+          <Stack alignItems="center">
+            <NextLink href="/">
+              <Avatar sx={{ width: 50, height: 50 }} src="/logo.png" />
+            </NextLink>
+          </Stack>
+          <Stack direction="row" gap={1}>
+            {menuItems.map((menuItem) => {
+              return (
+                <Link
+                  key={menuItem.href}
+                  component={NextLink}
+                  href={menuItem.href}
+                >
+                  {menuItem.label}
+                </Link>
+              );
+            })}
+          </Stack>
+        </Stack>
+      </Container>
+    </Box>
   );
 };
 
