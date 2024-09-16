@@ -1,9 +1,10 @@
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material"
+import Banner from "~/components/Banner"
 
 export default function Home() {
   return (
-    <Box height="1200px" sx={{ background: "red" }}>
-      <Button>Test</Button>
+    <Box height="1200px">
+      <Banner />
     </Box>
-  );
+  )
 }

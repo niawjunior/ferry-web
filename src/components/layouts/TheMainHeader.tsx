@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { Menu } from "@mui/icons-material";
+import { Menu } from "@mui/icons-material"
 import {
   Avatar,
   Box,
@@ -11,11 +11,11 @@ import {
   ListItem,
   ListItemText,
   Stack,
-} from "@mui/material";
-import { useState } from "react";
-import NextLink from "next/link";
-import Sidebar from "./Sidebar";
-import { usePathname } from "next/navigation";
+} from "@mui/material"
+import { useState } from "react"
+import NextLink from "next/link"
+import Sidebar from "./Sidebar"
+import { usePathname } from "next/navigation"
 
 const menuItems = [
   {
@@ -26,15 +26,15 @@ const menuItems = [
     href: "/admin/addresses",
     label: "ข้อมูลทั่วไป",
   },
-];
+]
 
 const TheMainHeader = () => {
-  const [isSidebar, setSidebarOpen] = useState(false);
-  const pathname = usePathname();
+  const [isSidebar, setSidebarOpen] = useState(false)
+  const pathname = usePathname()
 
   const handleSidebarToggle = () => {
-    setSidebarOpen(!isSidebar);
-  };
+    setSidebarOpen(!isSidebar)
+  }
 
   const menuContent = (
     <Card sx={{ px: 1, py: 2 }}>
@@ -46,7 +46,7 @@ const TheMainHeader = () => {
         }}
       >
         {menuItems.map((item, index) => {
-          const isActive = pathname.startsWith(item.href);
+          const isActive = pathname.startsWith(item.href)
 
           return (
             <Link key={index} component={NextLink} href={item.href} passHref>
@@ -69,16 +69,17 @@ const TheMainHeader = () => {
                 <ListItemText primary={item.label} />
               </ListItem>
             </Link>
-          );
+          )
         })}
       </List>
     </Card>
-  );
+  )
 
   return (
     <Box
       component="header"
       sx={{
+        zIndex: 1,
         width: "100%",
         position: "fixed",
         top: 0,
@@ -127,13 +128,13 @@ const TheMainHeader = () => {
                 >
                   {menuItem.label}
                 </Link>
-              );
+              )
             })}
           </Stack>
         </Stack>
       </Container>
     </Box>
-  );
-};
+  )
+}
 
-export default TheMainHeader;
+export default TheMainHeader
