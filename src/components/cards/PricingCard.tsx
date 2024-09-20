@@ -39,7 +39,6 @@ const PricingCard: React.FC<PricingCardProps> = ({
             backgroundColor: "secondary.main",
             color: "white",
             padding: "0.5rem 1rem",
-            borderRadius: "0 0 4px 0",
           }}
         >
           Top Pick
@@ -69,7 +68,6 @@ const PricingCard: React.FC<PricingCardProps> = ({
       </CardContent>
       <CardActions>
         <Button
-          sx={{ marginBottom: 2 }}
           variant="contained"
           color="primary"
           fullWidth

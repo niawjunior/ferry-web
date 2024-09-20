@@ -15,6 +15,9 @@ const theme = createTheme({
     primary: {
       main: "#E26609",
     },
+    secondary: {
+      main: "#B56576",
+    },
   },
   shape: {
     borderRadius: 30,
