@@ -36,13 +36,16 @@ const Banner = () => {
           Captain your own boat on the Yarra River you magnificent beast!
         </Typography>
         <Button
+          size="large"
           variant="contained"
           color="warning" // Use MUI's 'warning' color for the orange look
           sx={{
             backgroundColor: "#ff6600", // Custom orange color
+            textTransform: "none",
             color: "#fff",
             fontWeight: "bold",
-            padding: "10px 20px",
+            fontSize: "2rem",
+            padding: "5px 40px",
             "&:hover": {
               backgroundColor: "#e65c00",
             },
