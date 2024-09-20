@@ -16,6 +16,9 @@ const theme = createTheme({
       main: "#E26609",
     },
   },
+  shape: {
+    borderRadius: 20,
+  },
   components: {
     MuiLink: {
       styleOverrides: {
@@ -25,6 +28,11 @@ const theme = createTheme({
             textDecoration: "underline",
           },
         },
+      },
+    },
+    MuiButton: {
+      defaultProps: {
+        disableElevation: true,
       },
     },
   },
