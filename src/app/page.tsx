@@ -6,10 +6,10 @@ import HowItWorks from "~/components/HowItWorks"
 
 export default function Home() {
   return (
-    <Stack gap={2}>
+    <Stack>
       <Banner />
       <HowItWorks />
-      <Grid2 container spacing={2} justifyContent="center">
+      <Grid2 container spacing={2} sx={{ mt: 2 }} justifyContent="center">
         <Grid2 size={3}>
           <PricingCard
             title="Premium"

@@ -24,7 +24,7 @@ const HowItWorks = () => {
   ]
 
   return (
-    <Box sx={{ py: 8, px: 2 }}>
+    <Box sx={{ py: 8, px: 2, backgroundColor: "#f2f2f2" }}>
       <Typography variant="h4" align="center" gutterBottom>
         How It Works
       </Typography>
