@@ -1,12 +1,14 @@
-"use client";
-import { Grid2, Stack } from "@mui/material";
-import Banner from "~/components/Banner";
-import PricingCard from "~/components/cards/PricingCard";
+"use client"
+import { Grid2, Stack } from "@mui/material"
+import Banner from "~/components/Banner"
+import PricingCard from "~/components/cards/PricingCard"
+import HowItWorks from "~/components/HowItWorks"
 
 export default function Home() {
   return (
     <Stack gap={2}>
       <Banner />
+      <HowItWorks />
       <Grid2 container spacing={2} justifyContent="center">
         <Grid2 size={3}>
           <PricingCard
@@ -29,5 +31,5 @@ export default function Home() {
         </Grid2>
       </Grid2>
     </Stack>
-  );
+  )
 }
