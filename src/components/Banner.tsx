@@ -1,6 +1,11 @@
-import { Box, Typography, Button } from "@mui/material"
-import boatBanner from "../../public/boat-banner.webp"
-const Banner = () => {
+import { Box, Typography, Button } from "@mui/material";
+import boatBanner from "../../public/boat-banner.webp";
+interface BannerProps {
+  title: string;
+  description: string;
+}
+
+const Banner = ({ title, description }: BannerProps) => {
   return (
     <Box
       sx={{
@@ -29,10 +34,10 @@ const Banner = () => {
 
       <Box sx={{ zIndex: 1 }}>
         <Typography variant="h2" sx={{ fontWeight: "bold", mb: 2 }}>
-          You&apos;re The Captain Now
+          {title}
         </Typography>
         <Typography variant="h6" sx={{ mb: 4 }}>
-          Captain your own boat on the Yarra River you magnificent beast!
+          {description}
         </Typography>
         <Button
           size="large"
@@ -54,7 +59,7 @@ const Banner = () => {
         </Button>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default Banner
+export default Banner;
