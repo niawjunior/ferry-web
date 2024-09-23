@@ -19,12 +19,12 @@ import { usePathname } from "next/navigation"
 
 const menuItems = [
   {
-    href: "/admin/home",
+    href: "/",
     label: "หน้าหลัก",
   },
   {
-    href: "/admin/addresses",
-    label: "ข้อมูลทั่วไป",
+    href: "/about",
+    label: "เกี่ยวกับเรา",
   },
 ]
 

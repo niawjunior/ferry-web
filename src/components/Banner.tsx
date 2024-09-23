@@ -1,5 +1,5 @@
 import { Box, Typography, Button } from "@mui/material"
-
+import boatBanner from "../../public/boat-banner.webp"
 const Banner = () => {
   return (
     <Box
@@ -9,8 +9,7 @@ const Banner = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        backgroundImage:
-          "url('https://lirp.cdn-website.com/59e0eabe/dms3rep/multi/opt/ON+A+BOAT_BoatHireMelbourne-9-1920w.jpg')", // Replace with your image path
+        backgroundImage: `url(${boatBanner.src})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         color: "#fff",
