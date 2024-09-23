@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { fetchGraphQL, getGqlString } from "./fetch";
+import { fetchGraphQL } from "./fetch";
 
 export const query = gql`
   query {
@@ -18,7 +18,7 @@ export interface Banner {
 }
 
 export const getBannerList = async (): Promise<Banner[]> => {
-  const bannerCollection = await fetchGraphQL(getGqlString(query));
+  const bannerCollection = await fetchGraphQL(query);
 
   return bannerCollection.data.bannerCollection.items;
 };
