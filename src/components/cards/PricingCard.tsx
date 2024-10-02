@@ -9,23 +9,27 @@ import {
   Button,
   CardActions,
   Box,
+  Stack,
 } from "@mui/material";
+import Link from "next/link";
 
 type PricingCardProps = {
   title: string;
+  originalPrice: string;
   price: string;
   features: string[];
   buttonText: string;
+  path: string;
   isTopPick?: boolean;
-  onButtonClick: () => void;
 };
 
 const PricingCard: React.FC<PricingCardProps> = ({
   title,
+  originalPrice,
   price,
   features,
   buttonText,
-  onButtonClick,
+  path,
   isTopPick = false,
 }) => {
   return (
@@ -52,13 +56,24 @@ const PricingCard: React.FC<PricingCardProps> = ({
         >
           {title}
         </Typography>
-        <Typography
-          component="p"
-          sx={{ fontSize: "2rem", color: "primary.main" }}
-        >
-          {price}
-        </Typography>
-        <List sx={{ margin: 1 }}>
+        <Stack sx={{ alignItems: "center" }}>
+          {originalPrice && (
+            <Typography
+              sx={{
+                color: "text.secondary",
+                textDecoration: "line-through",
+              }}
+            >
+              {originalPrice}
+            </Typography>
+          )}
+          <Typography
+            sx={{ fontSize: "2rem", color: "primary.main", lineHeight: 1 }}
+          >
+            {price}
+          </Typography>
+        </Stack>
+        <List dense>
           {features.map((feature, index) => (
             <ListItem key={index}>
               <ListItemText primary={feature} />
@@ -68,10 +83,11 @@ const PricingCard: React.FC<PricingCardProps> = ({
       </CardContent>
       <CardActions>
         <Button
+          LinkComponent={Link}
+          href={path}
           variant="contained"
           color="primary"
           fullWidth
-          onClick={onButtonClick}
         >
           {buttonText}
         </Button>
