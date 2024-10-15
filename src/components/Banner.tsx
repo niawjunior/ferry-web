@@ -1,8 +1,8 @@
-import { Box, Typography, Button } from "@mui/material";
-import boatBanner from "../../public/boat-banner.webp";
+import { Box, Typography, Button, Container } from "@mui/material"
+import boatBanner from "../../public/boat-banner.webp"
 interface BannerProps {
-  title: string;
-  description: string;
+  title: string
+  description: string
 }
 
 const Banner = ({ title, description }: BannerProps) => {
@@ -33,33 +33,35 @@ const Banner = ({ title, description }: BannerProps) => {
       ></Box>
 
       <Box sx={{ zIndex: 1 }}>
-        <Typography variant="h2" sx={{ fontWeight: "bold", mb: 2 }}>
-          {title}
-        </Typography>
-        <Typography variant="h6" sx={{ mb: 4 }}>
-          {description}
-        </Typography>
-        <Button
-          size="large"
-          variant="contained"
-          color="warning" // Use MUI's 'warning' color for the orange look
-          sx={{
-            backgroundColor: "#ff6600", // Custom orange color
-            textTransform: "none",
-            color: "#fff",
-            fontWeight: "bold",
-            fontSize: "2rem",
-            padding: "5px 40px",
-            "&:hover": {
-              backgroundColor: "#e65c00",
-            },
-          }}
-        >
-          Book Now
-        </Button>
+        <Container maxWidth="md">
+          <Typography variant="h2" sx={{ fontWeight: "bold", mb: 2 }}>
+            {title}
+          </Typography>
+          <Typography variant="h6" sx={{ mb: 4 }}>
+            {description}
+          </Typography>
+          <Button
+            size="large"
+            variant="contained"
+            color="warning" // Use MUI's 'warning' color for the orange look
+            sx={{
+              backgroundColor: "#ff6600", // Custom orange color
+              textTransform: "none",
+              color: "#fff",
+              fontWeight: "bold",
+              fontSize: "2rem",
+              padding: "5px 40px",
+              "&:hover": {
+                backgroundColor: "#e65c00",
+              },
+            }}
+          >
+            จองเลย
+          </Button>
+        </Container>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default Banner;
+export default Banner

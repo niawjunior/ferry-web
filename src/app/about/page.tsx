@@ -30,17 +30,14 @@ const AboutPage = () => {
             align="center"
             sx={{ fontWeight: 700, mt: 4, color: "primary.main" }}
           >
-            About Our Boat Service
+            เกี่ยวกับบริการเรือของเรา
           </Typography>
           <Typography
             variant="body1"
             align="center"
             sx={{ fontSize: "1.25rem", mt: 2, color: "text.secondary" }}
           >
-            {`Our platform offers an easy and eco-friendly way to book boats for
-            dining, traveling, and exploring beautiful rivers. Whether it's a
-            romantic dinner or a family adventure, our boats provide a safe and
-            enjoyable experience for everyone.`}
+            {`Fluke Journey นำเสนอแพลตฟอร์มที่ง่ายและเป็นมิตรต่อสิ่งแวดล้อมสำหรับการจองเรือเพื่อการรับประทานอาหาร ท่องเที่ยว และสำรวจแม่น้ำที่งดงาม ไม่ว่าจะเป็นดินเนอร์สุดโรแมนติก หรือการผจญภัยสำหรับครอบครัว เรือของเรามอบประสบการณ์ที่ปลอดภัยและเพลิดเพลินสำหรับทุกคน`}
           </Typography>
         </Grid2>
       </Grid2>
@@ -49,31 +46,31 @@ const AboutPage = () => {
       <Grid2 container spacing={4} justifyContent="center">
         <Grid2 size={{ xs: 12, md: 6 }}>
           <Typography variant="h4" gutterBottom>
-            Our Mission
+            พันธกิจของเรา
           </Typography>
           <Typography
             variant="body1"
             sx={{ fontSize: "1rem", lineHeight: 1.6 }}
           >
-            We believe in making the water accessible for everyone, providing an
-            eco-friendly and easy-to-drive boating experience. Our boats are
-            designed to allow you to explore the river while enjoying dining and
-            leisure activities.
+            เรามุ่งมั่นที่จะทำให้ทุกคนสามารถเข้าถึงการล่องเรือได้ง่ายขึ้น
+            โดยการให้บริการเรือที่ขับขี่ง่าย และเป็นมิตรต่อสิ่งแวดล้อม
+            คุณสามารถเพลิดเพลินกับการสำรวจแม่น้ำพร้อมกับกิจกรรมรับประทานอาหารและพักผ่อนในบรรยากาศที่แสนสบาย
           </Typography>
         </Grid2>
 
         <Grid2 size={{ xs: 12, md: 6 }}>
           <Typography variant="h4" gutterBottom>
-            Why Choose Us?
+            ทำไมต้องเลือกเรา?
           </Typography>
           <Typography
             variant="body1"
             sx={{ fontSize: "1rem", lineHeight: 1.6 }}
           >
-            Our boats offer unique, family-friendly adventures, perfect for
-            dining on the water or exploring the beauty of the rivers. With
-            sustainable electric motors, you can cruise in comfort, without
-            worrying about the environmental impact.
+            เรือของเราออกแบบมาเพื่อการผจญภัยที่ไม่ซ้ำใคร
+            เหมาะสำหรับการรับประทานอาหารบนเรือ หรือการสำรวจความงดงามของแม่น้ำ
+            ด้วยระบบมอเตอร์ไฟฟ้าที่เป็นมิตรต่อสิ่งแวดล้อม
+            คุณสามารถล่องเรือได้อย่างสบายใจ
+            โดยไม่ต้องกังวลเกี่ยวกับผลกระทบต่อธรรมชาติ
           </Typography>
         </Grid2>
       </Grid2>

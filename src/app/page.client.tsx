@@ -1,12 +1,12 @@
-"use client";
+"use client"
 
-import { Container, Grid2, Typography } from "@mui/material";
-import PricingCard from "~/components/cards/PricingCard";
-import PromotionCard from "~/components/cards/PromotionCard";
-import { Promotion } from "~/server/libs/graphql/promotion.graphql";
+import { Container, Grid2, Typography } from "@mui/material"
+import PricingCard from "~/components/cards/PricingCard"
+import PromotionCard from "~/components/cards/PromotionCard"
+import { Promotion } from "~/server/libs/graphql/promotion.graphql"
 
 interface HomePageClientProps {
-  promotions: Promotion[];
+  promotions: Promotion[]
 }
 
 export default function HomePageClient({ promotions }: HomePageClientProps) {
@@ -31,10 +31,10 @@ export default function HomePageClient({ promotions }: HomePageClientProps) {
                   features={promotion.features}
                   path={promotion.path}
                   isTopPick={promotion.isTopPick}
-                  buttonText="Book Now"
+                  buttonText="จองเลย"
                 />
               </Grid2>
-            );
+            )
           })}
         </Grid2>
       </Container>
@@ -61,5 +61,5 @@ export default function HomePageClient({ promotions }: HomePageClientProps) {
         </Typography>
       </PromotionCard>
     </>
-  );
+  )
 }
