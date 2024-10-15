@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { Container, Grid2, Typography } from "@mui/material"
-import PricingCard from "~/components/cards/PricingCard"
-import PromotionCard from "~/components/cards/PromotionCard"
-import { Promotion } from "~/server/libs/graphql/promotion.graphql"
+import { Container, Grid2, Typography } from "@mui/material";
+import PricingCard from "~/components/cards/PricingCard";
+import PromotionCard from "~/components/cards/PromotionCard";
+import { Promotion } from "~/server/libs/graphql/promotion.graphql";
 
 interface HomePageClientProps {
-  promotions: Promotion[]
+  promotions: Promotion[];
 }
 
 export default function HomePageClient({ promotions }: HomePageClientProps) {
@@ -34,32 +34,32 @@ export default function HomePageClient({ promotions }: HomePageClientProps) {
                   buttonText="จองเลย"
                 />
               </Grid2>
-            )
+            );
           })}
         </Grid2>
       </Container>
       <PromotionCard
-        backgroundImage="/highlight.webp"
+        backgroundImage="/highlight.jpg"
         paperBgColor="#B56576"
         buttonColor="white"
-        buttonText="BOOK POP-UP PICNIC NOW"
+        buttonText="จองปิกนิกป๊อปอัพตอนนี้!"
         onButtonClick={() => {}}
       >
         <Typography variant="h5" component="h2" gutterBottom>
-          LUXURY POP-UP PICNICS AVAILABLE!
+          ปิกนิกหรูหราแบบป๊อปอัพพร้อมให้บริการแล้ว!
         </Typography>
         <Typography variant="body1">
-          Try our luxury pop-up picnic for the experience of a lifetime! Join us
-          for a romantic date or a special occasion as you take in the city
-          sights in a decked-out boat.
+          ลองสัมผัสประสบการณ์ปิกนิกหรูหราแบบป๊อปอัพ
+          ที่จะทำให้คุณประทับใจไม่รู้ลืม!
+          มาร่วมสร้างช่วงเวลาที่โรแมนติกหรือเฉลิมฉลองโอกาสพิเศษไปกับเราขณะล่องเรือชมทิวทัศน์ของเมืองในเรือที่ตกแต่งอย่างสวยงาม
         </Typography>
         <Typography variant="body1">
-          Your luxury pop-up picnic cruise includes a skipper-yourself boat
-          that`s fully styled with rugs, cushions, throws, an ice bucket with
-          ice, flutes, napkins, and a Bluetooth music system. Plus, you get to
-          keep the fresh flowers!
+          การล่องเรือปิกนิกหรูของคุณประกอบไปด้วยเรือที่ขับเองได้
+          ซึ่งตกแต่งอย่างเต็มที่ด้วยพรม หมอน ผ้าห่ม ถังน้ำแข็งพร้อมน้ำแข็ง
+          แก้วแชมเปญ ผ้าเช็ดปาก และระบบเสียง Bluetooth นอกจากนี้
+          คุณยังได้รับช่อดอกไม้สดกลับบ้านอีกด้วย!
         </Typography>
       </PromotionCard>
     </>
-  )
+  );
 }
