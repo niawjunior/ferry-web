@@ -33,25 +33,36 @@ const PricingCard: React.FC<PricingCardProps> = ({
   isTopPick = false,
 }) => {
   return (
-    <Card sx={{ width: "100%", margin: "auto", position: "relative" }}>
+    <Card
+      sx={{
+        width: "100%",
+        margin: "auto",
+        position: "relative",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       {isTopPick && (
         <Box
           sx={{
             position: "absolute",
             top: 0,
             right: 0,
+            zIndex: 0,
             backgroundColor: "secondary.main",
             color: "white",
-            padding: "0.5rem 1rem",
+            padding: "0.5rem",
           }}
         >
-          Top Pick
+          <Typography variant="caption">แนะนำ</Typography>
         </Box>
       )}
-      <CardContent>
+      <CardContent sx={{ zIndex: 1, position: "relative" }}>
         <Typography
           component="h2"
           gutterBottom
+          textAlign="center"
           sx={{ fontSize: "1.5rem", fontWeight: "bold" }}
         >
           {title}
@@ -81,7 +92,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
           ))}
         </List>
       </CardContent>
-      <CardActions>
+      <CardActions sx={{ mt: "auto" }}>
         <Button
           LinkComponent={Link}
           href={path}

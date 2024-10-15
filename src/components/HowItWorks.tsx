@@ -5,28 +5,28 @@ const HowItWorks = () => {
   const steps = [
     {
       icon: <MessageSquare size={48} />,
-      title: "Book Online",
+      title: "จองออนไลน์",
       description:
-        "Choose your preferred cruise type and book easily through our website. Same-day bookings often available!",
+        "เลือกประเภทการล่องเรือสำราญที่คุณต้องการและจองได้ง่ายๆ ผ่านเว็บไซต์ของเรา จองล่วงหน้าได้ในวันเดียวกัน!",
     },
     {
       icon: <Anchor size={48} />,
-      title: "Arrive at the Dock",
+      title: "เดินทางถึงท่าเรือ",
       description:
-        "Meet your crew at the designated dock 15 minutes before departure. Don't forget to bring refreshments or pre-order our catering package.",
+        "พบกับลูกเรือของคุณที่ท่าเรือที่กำหนดล่วงหน้า 15 นาทีก่อนออกเดินทาง อย่าลืมนำเครื่องดื่มและอาหารว่างติดตัวไป หรือสั่งชุดอาหารล่วงหน้ากับเราได้",
     },
     {
       icon: <Smile size={48} />,
-      title: "Enjoy Your Cruise",
+      title: "เพลิดเพลินกับการล่องเรือ",
       description:
-        "Set sail on the Yarra River and enjoy a fantastic time with your friends. Our boats are designed for maximum enjoyment!",
+        "ล่องเรือไปตามแม่น้ำเจ้าพระยาและสนุกสนานไปกับช่วงเวลาดีๆ กับเพื่อนๆ ของคุณ เรือของเราออกแบบมาเพื่อความสนุกสนานเต็มที่!",
     },
   ]
 
   return (
     <Box sx={{ py: 8, px: 2, backgroundColor: "#f2f2f2" }}>
       <Typography variant="h4" align="center" gutterBottom>
-        How It Works
+        ขั้นตอน
       </Typography>
       <Grid2 container spacing={4} justifyContent="center">
         {steps.map((step, index) => (

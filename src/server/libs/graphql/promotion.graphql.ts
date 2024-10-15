@@ -3,7 +3,7 @@ import { fetchGraphQL } from "./fetch";
 
 export const query = gql`
   query {
-    promotionCollection(preview: false, order: sys_publishedAt_DESC) {
+    promotionCollection(preview: false, order: order_ASC) {
       items {
         _id
         title
