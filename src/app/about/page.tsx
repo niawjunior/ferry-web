@@ -1,6 +1,6 @@
 import { Container, Typography, Box, Grid2 } from "@mui/material"
 import Image from "next/image" // for using optimized Next.js images
-import boatImage from "../../../public/boat-banner.webp" // add the appropriate image path
+import boatImage from "../../../public/วัด.jpg" // add the appropriate image path
 
 const AboutPage = () => {
   return (

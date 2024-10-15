@@ -1,11 +1,13 @@
 import { Box, Typography, Button, Container } from "@mui/material"
-import boatBanner from "../../public/boat-banner.webp"
 interface BannerProps {
   title: string
   description: string
+  image: {
+    url: string
+  }
 }
 
-const Banner = ({ title, description }: BannerProps) => {
+const Banner = ({ title, description, image }: BannerProps) => {
   return (
     <Box
       sx={{
@@ -14,7 +16,7 @@ const Banner = ({ title, description }: BannerProps) => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        backgroundImage: `url(${boatBanner.src})`,
+        backgroundImage: `url(${image?.url})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         color: "#fff",
