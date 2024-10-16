@@ -12,6 +12,9 @@ const query = gql`
         features
         isTopPick
         path
+        background {
+          url
+        }
       }
     }
   }
@@ -25,6 +28,9 @@ export interface Promotion {
   features: string[];
   isTopPick: boolean;
   path: string;
+  background: {
+    url: string;
+  };
 }
 
 export const getPromotionList = async (): Promise<Promotion[]> => {

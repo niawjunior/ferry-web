@@ -35,6 +35,7 @@ export default function HomePageClient({
                   features={promotion.features}
                   path={promotion.path}
                   isTopPick={promotion.isTopPick}
+                  backgroundUrl={promotion.background.url}
                   buttonText="จองเลย"
                 />
               </Grid2>

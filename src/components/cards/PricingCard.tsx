@@ -10,6 +10,7 @@ import {
   CardActions,
   Box,
   Stack,
+  colors,
 } from "@mui/material";
 import Link from "next/link";
 
@@ -20,6 +21,7 @@ type PricingCardProps = {
   features: string[];
   buttonText: string;
   path: string;
+  backgroundUrl: string;
   isTopPick?: boolean;
 };
 
@@ -30,6 +32,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
   features,
   buttonText,
   path,
+  backgroundUrl,
   isTopPick = false,
 }) => {
   return (
@@ -39,71 +42,85 @@ const PricingCard: React.FC<PricingCardProps> = ({
         margin: "auto",
         position: "relative",
         height: "100%",
-        display: "flex",
-        flexDirection: "column",
+        backgroundImage: `url(${backgroundUrl})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
       }}
     >
-      {isTopPick && (
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            right: 0,
-            zIndex: 0,
-            backgroundColor: "secondary.main",
-            color: "white",
-            padding: "0.5rem",
-          }}
-        >
-          <Typography variant="caption">แนะนำ</Typography>
-        </Box>
-      )}
-      <CardContent sx={{ zIndex: 1, position: "relative" }}>
-        <Typography
-          component="h2"
-          gutterBottom
-          textAlign="center"
-          sx={{ fontSize: "1.5rem", fontWeight: "bold" }}
-        >
-          {title}
-        </Typography>
-        <Stack sx={{ alignItems: "center" }}>
-          {originalPrice && (
-            <Typography
-              sx={{
-                color: "text.secondary",
-                textDecoration: "line-through",
-              }}
-            >
-              {originalPrice}
-            </Typography>
-          )}
-          <Typography
-            sx={{ fontSize: "2rem", color: "primary.main", lineHeight: 1 }}
+      <Box
+        sx={{
+          background: "rgba(0,0,0,0.3)",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        {isTopPick && (
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              zIndex: 0,
+              backgroundColor: "secondary.main",
+              color: "white",
+              padding: "0.5rem",
+            }}
           >
-            {price}
+            <Typography variant="caption">แนะนำ</Typography>
+          </Box>
+        )}
+        <CardContent sx={{ zIndex: 1, position: "relative" }}>
+          <Typography
+            component="h2"
+            gutterBottom
+            textAlign="center"
+            color="white"
+            sx={{ fontSize: "1.5rem", fontWeight: "bold" }}
+          >
+            {title}
           </Typography>
-        </Stack>
-        <List dense>
-          {features.map((feature, index) => (
-            <ListItem key={index}>
-              <ListItemText primary={feature} />
-            </ListItem>
-          ))}
-        </List>
-      </CardContent>
-      <CardActions sx={{ mt: "auto" }}>
-        <Button
-          LinkComponent={Link}
-          target="_blank"
-          href={path}
-          variant="contained"
-          color="primary"
-          fullWidth
-        >
-          {buttonText}
-        </Button>
-      </CardActions>
+          <Stack sx={{ alignItems: "center" }}>
+            {originalPrice && (
+              <Typography
+                sx={{
+                  color: colors.grey[400],
+                  textDecoration: "line-through",
+                }}
+              >
+                {originalPrice}
+              </Typography>
+            )}
+            <Typography
+              sx={{ fontSize: "2rem", color: "primary.main", lineHeight: 1 }}
+            >
+              {price}
+            </Typography>
+          </Stack>
+          <List dense>
+            {features.map((feature, index) => (
+              <ListItem key={index}>
+                <ListItemText
+                  sx={{ color: colors.grey[100] }}
+                  primary={feature}
+                />
+              </ListItem>
+            ))}
+          </List>
+        </CardContent>
+        <CardActions sx={{ mt: "auto" }}>
+          <Button
+            LinkComponent={Link}
+            target="_blank"
+            href={path}
+            variant="contained"
+            color="primary"
+            fullWidth
+          >
+            {buttonText}
+          </Button>
+        </CardActions>
+      </Box>
     </Card>
   );
 };
