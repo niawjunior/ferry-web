@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 import { fetchGraphQL } from "./fetch";
 
-export const query = gql`
+const query = gql`
   query {
     promotionCollection(preview: false, order: order_ASC) {
       items {

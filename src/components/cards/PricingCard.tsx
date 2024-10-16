@@ -95,6 +95,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
       <CardActions sx={{ mt: "auto" }}>
         <Button
           LinkComponent={Link}
+          target="_blank"
           href={path}
           variant="contained"
           color="primary"

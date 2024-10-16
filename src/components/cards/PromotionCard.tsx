@@ -8,13 +8,14 @@ import {
   Container,
   Box,
 } from "@mui/material";
+import Link from "next/link";
 
 interface PromotionCardProps {
   backgroundImage: string;
   paperBgColor?: string;
   buttonColor?: string;
   buttonText: string;
-  onButtonClick: () => void;
+  path: string;
   sx?: SxProps<Theme>;
 }
 
@@ -23,7 +24,7 @@ const PromotionCard: React.FC<React.PropsWithChildren<PromotionCardProps>> = ({
   paperBgColor = "secondary.main",
   buttonColor = "white",
   buttonText,
-  onButtonClick,
+  path,
   sx = {},
   children,
 }) => {
@@ -63,13 +64,15 @@ const PromotionCard: React.FC<React.PropsWithChildren<PromotionCardProps>> = ({
             >
               {children}
               <Button
+                LinkComponent={Link}
+                href={path}
+                target="_blank"
                 variant="outlined"
                 sx={{
                   color: buttonColor,
                   borderColor: buttonColor,
                   mt: 2,
                 }}
-                onClick={onButtonClick}
               >
                 {buttonText}
               </Button>

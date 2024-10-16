@@ -3,13 +3,17 @@
 import { Container, Grid2, Typography } from "@mui/material";
 import PricingCard from "~/components/cards/PricingCard";
 import PromotionCard from "~/components/cards/PromotionCard";
-import { Promotion } from "~/server/libs/graphql/promotion.graphql";
+import { Highlight, Promotion } from "~/server/libs/graphql";
 
 interface HomePageClientProps {
   promotions: Promotion[];
+  highlight: Highlight;
 }
 
-export default function HomePageClient({ promotions }: HomePageClientProps) {
+export default function HomePageClient({
+  promotions,
+  highlight,
+}: HomePageClientProps) {
   return (
     <>
       <Container sx={{ py: 2 }}>
@@ -39,26 +43,17 @@ export default function HomePageClient({ promotions }: HomePageClientProps) {
         </Grid2>
       </Container>
       <PromotionCard
-        backgroundImage="/highlight.jpg"
+        backgroundImage={highlight.background.url}
         paperBgColor="#B56576"
         buttonColor="white"
-        buttonText="จองปิกนิกป๊อปอัพตอนนี้!"
-        onButtonClick={() => {}}
+        buttonText={highlight.actionText}
+        path={highlight.path}
       >
         <Typography variant="h5" component="h2" gutterBottom>
-          ปิกนิกหรูหราแบบป๊อปอัพพร้อมให้บริการแล้ว!
+          {highlight.title}
         </Typography>
-        <Typography variant="body1">
-          ลองสัมผัสประสบการณ์ปิกนิกหรูหราแบบป๊อปอัพ
-          ที่จะทำให้คุณประทับใจไม่รู้ลืม!
-          มาร่วมสร้างช่วงเวลาที่โรแมนติกหรือเฉลิมฉลองโอกาสพิเศษไปกับเราขณะล่องเรือชมทิวทัศน์ของเมืองในเรือที่ตกแต่งอย่างสวยงาม
-        </Typography>
-        <Typography variant="body1">
-          การล่องเรือปิกนิกหรูของคุณประกอบไปด้วยเรือที่ขับเองได้
-          ซึ่งตกแต่งอย่างเต็มที่ด้วยพรม หมอน ผ้าห่ม ถังน้ำแข็งพร้อมน้ำแข็ง
-          แก้วแชมเปญ ผ้าเช็ดปาก และระบบเสียง Bluetooth นอกจากนี้
-          คุณยังได้รับช่อดอกไม้สดกลับบ้านอีกด้วย!
-        </Typography>
+        <Typography variant="body1">{highlight.description1}</Typography>
+        <Typography variant="body1">{highlight.description2}</Typography>
       </PromotionCard>
     </>
   );
