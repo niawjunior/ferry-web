@@ -33,8 +33,8 @@ export default async function Home() {
         image={banner.image}
         path={banner.path}
       />
-      <HowItWorks />
       <HomePageClient promotions={promotions} highlight={highlight} />
+      <HowItWorks />
       <Gallery images={flatGallery} />
     </Stack>
   )

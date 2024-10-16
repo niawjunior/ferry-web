@@ -23,7 +23,7 @@ const Gallery = ({ images }: GalleryProps) => {
               src={item.url}
               alt={item.title}
               width={248}
-              height={248}
+              height={300}
               layout="responsive"
               objectFit="cover"
             />

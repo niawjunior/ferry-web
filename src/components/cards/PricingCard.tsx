@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   Card,
   CardContent,
@@ -11,19 +11,19 @@ import {
   Box,
   Stack,
   colors,
-} from "@mui/material";
-import Link from "next/link";
+} from "@mui/material"
+import Link from "next/link"
 
 type PricingCardProps = {
-  title: string;
-  originalPrice: string;
-  price: string;
-  features: string[];
-  buttonText: string;
-  path: string;
-  backgroundUrl: string;
-  isTopPick?: boolean;
-};
+  title: string
+  originalPrice: string
+  price: string
+  features: string[]
+  buttonText: string
+  path: string
+  backgroundUrl: string
+  isTopPick?: boolean
+}
 
 const PricingCard: React.FC<PricingCardProps> = ({
   title,
@@ -49,7 +49,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
     >
       <Box
         sx={{
-          background: "rgba(0,0,0,0.3)",
+          background: "rgba(0,0,0,0.5)",
           height: "100%",
           display: "flex",
           flexDirection: "column",
@@ -122,7 +122,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
         </CardActions>
       </Box>
     </Card>
-  );
-};
+  )
+}
 
-export default PricingCard;
+export default PricingCard

@@ -1,6 +1,6 @@
 "use client"
 
-import { Container, Grid2, Typography } from "@mui/material"
+import { Box, Container, Grid2, Typography } from "@mui/material"
 import PricingCard from "~/components/cards/PricingCard"
 import PromotionCard from "~/components/cards/PromotionCard"
 import { Highlight, Promotion } from "~/server/libs/graphql"
@@ -16,33 +16,35 @@ export default function HomePageClient({
 }: HomePageClientProps) {
   return (
     <>
-      <Container sx={{ py: 2 }}>
-        <Grid2 container spacing={2} justifyContent="center">
-          {promotions.map((promotion) => {
-            return (
-              <Grid2
-                key={promotion._id}
-                size={{
-                  xs: 12,
-                  sm: 6,
-                  md: 4,
-                }}
-              >
-                <PricingCard
-                  title={promotion.title}
-                  originalPrice={`${promotion.originalPrice} บาท`}
-                  price={`${promotion.price} บาท`}
-                  features={promotion.features}
-                  path={promotion.path}
-                  isTopPick={promotion.isTopPick}
-                  backgroundUrl={promotion.background.url}
-                  buttonText="จองเลย"
-                />
-              </Grid2>
-            )
-          })}
-        </Grid2>
-      </Container>
+      <Box sx={{ backgroundColor: "#f2f2f2" }}>
+        <Container sx={{ py: 2 }}>
+          <Grid2 container spacing={2} justifyContent="center">
+            {promotions.map((promotion) => {
+              return (
+                <Grid2
+                  key={promotion._id}
+                  size={{
+                    xs: 12,
+                    sm: 6,
+                    md: 4,
+                  }}
+                >
+                  <PricingCard
+                    title={promotion.title}
+                    originalPrice={`${promotion.originalPrice} บาท`}
+                    price={`${promotion.price} บาท`}
+                    features={promotion.features}
+                    path={promotion.path}
+                    isTopPick={promotion.isTopPick}
+                    backgroundUrl={promotion.background.url}
+                    buttonText="จองเลย"
+                  />
+                </Grid2>
+              )
+            })}
+          </Grid2>
+        </Container>
+      </Box>
       <PromotionCard
         backgroundImage={highlight.background.url}
         paperBgColor="#B56576"
