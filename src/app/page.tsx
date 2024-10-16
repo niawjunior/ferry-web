@@ -16,6 +16,7 @@ export default async function Home() {
         title={banner.title}
         description={banner.description}
         image={banner.image}
+        path={banner.path}
       />
       <HowItWorks />
       <HomePageClient promotions={promotions} />

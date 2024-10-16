@@ -1,13 +1,15 @@
 import { Box, Typography, Button, Container } from "@mui/material"
+import Link from "next/link"
 interface BannerProps {
   title: string
   description: string
   image: {
     url: string
   }
+  path?: string
 }
 
-const Banner = ({ title, description, image }: BannerProps) => {
+const Banner = ({ title, description, image, path }: BannerProps) => {
   return (
     <Box
       sx={{
@@ -43,6 +45,9 @@ const Banner = ({ title, description, image }: BannerProps) => {
             {description}
           </Typography>
           <Button
+            component={Link}
+            href={path}
+            target="_blank"
             size="large"
             variant="contained"
             color="warning" // Use MUI's 'warning' color for the orange look

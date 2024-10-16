@@ -10,6 +10,7 @@ export const query = gql`
         image {
           url
         }
+        path
       }
     }
   }
@@ -21,6 +22,7 @@ export interface Banner {
   image: {
     url: string
   }
+  path?: string
 }
 
 export const getBannerList = async (): Promise<Banner[]> => {

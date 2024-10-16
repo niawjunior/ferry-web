@@ -26,7 +26,7 @@ const HowItWorks = () => {
   return (
     <Box sx={{ py: 8, px: 2, backgroundColor: "#f2f2f2" }}>
       <Typography variant="h4" align="center" gutterBottom>
-        ขั้นตอน
+        มาร่วมเป็นส่วนหนึ่งในการสัมผัสประสบการณ์อันแสนพิเศษ
       </Typography>
       <Grid2 container spacing={4} justifyContent="center">
         {steps.map((step, index) => (

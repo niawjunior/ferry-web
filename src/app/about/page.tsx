@@ -1,6 +1,6 @@
 import { Container, Typography, Box, Grid2 } from "@mui/material"
 import Image from "next/image" // for using optimized Next.js images
-import boatImage from "../../../public/วัด.jpg" // add the appropriate image path
+import bannerImage from "../../../public/banner-4.jpg" // add the appropriate image path
 
 const AboutPage = () => {
   return (
@@ -12,10 +12,10 @@ const AboutPage = () => {
         alignItems="center"
         sx={{ mb: 6 }}
       >
-        <Grid2 size={{ xs: 12, md: 8 }}>
-          <Box sx={{ position: "relative", height: 400 }}>
+        <Grid2 size={{ xs: 12, md: 12 }}>
+          <Box sx={{ position: "relative", height: 300 }}>
             <Image
-              src={boatImage.src} // boat image you uploaded
+              src={bannerImage} // boat image you uploaded
               alt="Boat image"
               layout="fill"
               objectFit="cover"
