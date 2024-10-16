@@ -1,13 +1,13 @@
-"use client";
+"use client"
 
-import { Container, Grid2, Typography } from "@mui/material";
-import PricingCard from "~/components/cards/PricingCard";
-import PromotionCard from "~/components/cards/PromotionCard";
-import { Highlight, Promotion } from "~/server/libs/graphql";
+import { Container, Grid2, Typography } from "@mui/material"
+import PricingCard from "~/components/cards/PricingCard"
+import PromotionCard from "~/components/cards/PromotionCard"
+import { Highlight, Promotion } from "~/server/libs/graphql"
 
 interface HomePageClientProps {
-  promotions: Promotion[];
-  highlight: Highlight;
+  promotions: Promotion[]
+  highlight: Highlight
 }
 
 export default function HomePageClient({
@@ -38,7 +38,7 @@ export default function HomePageClient({
                   buttonText="จองเลย"
                 />
               </Grid2>
-            );
+            )
           })}
         </Grid2>
       </Container>
@@ -56,5 +56,5 @@ export default function HomePageClient({
         <Typography variant="body1">{highlight.description2}</Typography>
       </PromotionCard>
     </>
-  );
+  )
 }
