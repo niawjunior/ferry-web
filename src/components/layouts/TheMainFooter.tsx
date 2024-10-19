@@ -1,6 +1,5 @@
 import { Facebook } from "@mui/icons-material";
-import { Box, Container, Stack, Typography } from "@mui/material";
-import Link from "next/link";
+import { Box, Container, Link, Stack, Typography } from "@mui/material";
 
 const TheMainFooter = () => {
   return (
@@ -16,6 +15,7 @@ const TheMainFooter = () => {
           </Typography>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Link
+              sx={{ display: "inline-flex" }}
               href="https://www.facebook.com/Flukejourneytravel"
               target="_blank"
             >
