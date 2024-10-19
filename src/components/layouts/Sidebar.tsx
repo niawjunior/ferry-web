@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import { Drawer } from "@mui/material";
-import { ReactNode } from "react";
+import { Drawer } from "@mui/material"
+import { ReactNode } from "react"
 
-const drawerWidth = 262;
+const drawerWidth = 262
 
 interface SidebarProps {
-  menuContent: ReactNode;
-  isOpen: boolean;
-  onDrawerToggle: () => void;
+  menuContent: ReactNode
+  isOpen: boolean
+  onDrawerToggle: () => void
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -29,12 +29,14 @@ const Sidebar: React.FC<SidebarProps> = ({
           boxSizing: "border-box",
           width: drawerWidth,
           p: 2,
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          backdropFilter: "blur(10px)",
         },
       }}
     >
       {menuContent}
     </Drawer>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

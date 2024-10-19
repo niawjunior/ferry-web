@@ -38,7 +38,14 @@ const Banner = ({ title, description, image, path }: BannerProps) => {
 
       <Box sx={{ zIndex: 1 }}>
         <Container maxWidth="md">
-          <Typography variant="h2" sx={{ fontWeight: "bold", mb: 2 }}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontWeight: "bold !important",
+              mb: 2,
+              typography: { xs: "h4", sm: "h4", md: "h2" },
+            }}
+          >
             {title}
           </Typography>
           <Typography variant="h6" sx={{ mb: 4 }}>

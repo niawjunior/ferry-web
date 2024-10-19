@@ -4,7 +4,6 @@ import { Menu } from "@mui/icons-material"
 import {
   Avatar,
   Box,
-  Card,
   Container,
   Link,
   List,
@@ -37,49 +36,47 @@ const TheMainHeader = () => {
   }
 
   const menuContent = (
-    <Card sx={{ px: 1, py: 2 }}>
-      <List
-        sx={{
-          "& a": {
-            textDecoration: "unset",
-          },
-        }}
-      >
-        {menuItems.map((item, index) => {
-          const isActive = pathname.startsWith(item.href)
+    <List
+      sx={{
+        "& a": {
+          textDecoration: "unset",
+        },
+      }}
+    >
+      {menuItems.map((item, index) => {
+        const isActive = pathname.startsWith(item.href)
 
-          return (
-            <Link key={index} component={NextLink} href={item.href} passHref>
-              <ListItem
-                sx={
-                  isActive
-                    ? {
+        return (
+          <Link key={index} component={NextLink} href={item.href} passHref>
+            <ListItem
+              sx={
+                isActive
+                  ? {
+                      color: "#fff",
+                      backgroundColor: "primary.main",
+
+                      "&:hover": {
                         color: "#fff",
-                        backgroundColor: "primary.main",
-
-                        "&:hover": {
-                          color: "#fff",
-                          backgroundColor: "primary.dark",
-                        },
-                      }
-                    : {}
-                }
-                onClick={handleSidebarToggle}
-              >
-                <ListItemText primary={item.label} />
-              </ListItem>
-            </Link>
-          )
-        })}
-      </List>
-    </Card>
+                        backgroundColor: "primary.dark",
+                      },
+                    }
+                  : {}
+              }
+              onClick={handleSidebarToggle}
+            >
+              <ListItemText primary={item.label} />
+            </ListItem>
+          </Link>
+        )
+      })}
+    </List>
   )
 
   return (
     <Box
       component="header"
       sx={{
-        zIndex: 1,
+        zIndex: 2,
         width: "100%",
         position: "fixed",
         top: 0,
@@ -87,7 +84,8 @@ const TheMainHeader = () => {
           xs: 1,
           md: 1.5,
         },
-        background: "rgba(0,0,0, 0.3)",
+        background: "rgba(1, 1, 1, 0.6)",
+        backdropFilter: "blur(10px)",
       }}
     >
       <Container>
@@ -97,27 +95,29 @@ const TheMainHeader = () => {
           alignItems="center"
           gap={2}
         >
-          <Stack
-            sx={{
-              display: {
-                xs: "flex",
-                md: "none",
-              },
-              alignItems: "center",
-            }}
-          >
-            <Menu sx={{ color: "#fff" }} onClick={handleSidebarToggle} />
-            <Sidebar
-              menuContent={menuContent}
-              isOpen={isSidebar}
-              onDrawerToggle={handleSidebarToggle}
-            />
-          </Stack>
-          <Stack alignItems="center">
-            <NextLink href="/">
-              <Avatar sx={{ width: 50, height: 50 }} src="/logo.png" />
-            </NextLink>
-          </Stack>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <Stack
+              sx={{
+                display: {
+                  xs: "flex",
+                  md: "none",
+                },
+                alignItems: "center",
+              }}
+            >
+              <Menu sx={{ color: "#fff" }} onClick={handleSidebarToggle} />
+              <Sidebar
+                menuContent={menuContent}
+                isOpen={isSidebar}
+                onDrawerToggle={handleSidebarToggle}
+              />
+            </Stack>
+            <Stack alignItems="center">
+              <NextLink href="/">
+                <Avatar sx={{ width: 50, height: 50 }} src="/logo.png" />
+              </NextLink>
+            </Stack>
+          </Box>
           <Stack direction="row" gap={1}>
             {menuItems.map((menuItem) => {
               return (
