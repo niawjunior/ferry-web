@@ -24,11 +24,20 @@ const HowItWorks = () => {
   ]
 
   return (
-    <Box sx={{ py: 8, px: 2, backgroundColor: "#f2f2f2" }}>
-      <Typography variant="h4" align="center" gutterBottom>
+    <Box sx={{ py: 8, px: 2, backgroundColor: "#f8f8f8" }}>
+      <Typography
+        variant="h4"
+        align="center"
+        gutterBottom
+        sx={{
+          fontWeight: 600,
+          color: "#333",
+          mb: 6,
+        }}
+      >
         มาร่วมเป็นส่วนหนึ่งในการสัมผัสประสบการณ์อันแสนพิเศษ
       </Typography>
-      <Grid2 container spacing={4} justifyContent="center">
+      <Grid2 container spacing={6} justifyContent="center">
         {steps.map((step, index) => (
           <Grid2
             size={{
@@ -40,22 +49,28 @@ const HowItWorks = () => {
           >
             <Box
               sx={{
-                p: 3,
+                p: 4,
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 textAlign: "center",
+                backgroundColor: "#fff",
+                borderRadius: "30px",
+                boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+                transition: "transform 0.3s ease",
+                "&:hover": {
+                  transform: "scale(1.02)",
+                },
               }}
             >
               <Box
                 sx={{
-                  mb: 2,
+                  mb: 3,
                   color: "primary.main",
-                  border: "1px solid",
                   borderRadius: "50%",
-                  width: 100,
-                  height: 100,
+                  width: 80,
+                  height: 80,
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
@@ -63,10 +78,26 @@ const HowItWorks = () => {
               >
                 {step.icon}
               </Box>
-              <Typography variant="h5" component="h3" gutterBottom>
+              <Typography
+                variant="h5"
+                component="h3"
+                gutterBottom
+                sx={{
+                  fontWeight: 500,
+                  color: "#333",
+                }}
+              >
                 {step.title}
               </Typography>
-              <Typography variant="body1">{step.description}</Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: "#666",
+                  fontSize: "1rem",
+                }}
+              >
+                {step.description}
+              </Typography>
             </Box>
           </Grid2>
         ))}
