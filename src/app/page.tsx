@@ -1,30 +1,29 @@
-import { Stack } from "@mui/material"
-import HomePageClient from "./page.client"
-import Banner from "~/components/Banner"
-import HowItWorks from "~/components/HowItWorks"
+import { Stack } from "@mui/material";
+import HomePageClient from "./page.client";
+import Banner from "~/components/Banner";
+import HowItWorks from "~/components/HowItWorks";
 import {
   getBannerList,
   getGalleryList,
   getHighlightList,
-} from "~/server/libs/graphql"
-import { getPromotionList } from "~/server/libs/graphql/promotion.graphql"
-import Gallery from "~/components/Gallery"
+} from "~/server/libs/graphql";
+import { getPromotionList } from "~/server/libs/graphql/promotion.graphql";
+import Gallery from "~/components/Gallery";
 
 export default async function Home() {
-  const banners = await getBannerList()
-  const gallery = await getGalleryList()
-  const banner = banners?.[0]
-  const promotions = await getPromotionList()
-  const highlights = await getHighlightList()
-  const highlight = highlights?.[0]
+  const banners = await getBannerList();
+  const gallery = await getGalleryList();
+  const banner = banners?.[0];
+  const promotions = await getPromotionList();
+  const highlights = await getHighlightList();
+  const highlight = highlights?.[0];
 
   const flatGallery = gallery
     .map((item) => {
-      return item.imageCollection.items
+      return item.imageCollection.items;
     })
-    .flat()
+    .flat();
 
-  console.log(flatGallery)
   return (
     <Stack>
       <Banner
@@ -37,5 +36,5 @@ export default async function Home() {
       <HowItWorks />
       <Gallery images={flatGallery} />
     </Stack>
-  )
+  );
 }

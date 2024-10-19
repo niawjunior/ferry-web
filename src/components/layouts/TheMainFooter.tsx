@@ -1,11 +1,31 @@
-import { Box } from "@mui/material"
+import { Facebook } from "@mui/icons-material";
+import { Box, Container, Stack, Typography } from "@mui/material";
+import Link from "next/link";
 
 const TheMainFooter = () => {
   return (
-    <Box component="footer">
-      © Copyright - ล่องเรือเจ้าพระยา by Fluke Journey
+    <Box component="footer" sx={{ bgcolor: "primary.main", p: 1 }}>
+      <Container>
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Typography color="white">
+            © Copyright - ล่องเรือเจ้าพระยา by Fluke Journey
+          </Typography>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Link
+              href="https://www.facebook.com/Flukejourneytravel"
+              target="_blank"
+            >
+              <Facebook sx={{ color: "white" }} />
+            </Link>
+          </Box>
+        </Stack>
+      </Container>
     </Box>
-  )
-}
+  );
+};
 
-export default TheMainFooter
+export default TheMainFooter;
