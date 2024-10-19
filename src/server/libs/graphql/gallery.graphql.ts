@@ -6,6 +6,7 @@ const query = gql`
     galleryCollection(preview: false) {
       items {
         name
+        author
         imageCollection {
           items {
             url
@@ -19,6 +20,7 @@ const query = gql`
 
 export interface Gallery {
   name: string
+  author: string
   imageCollection: {
     items: {
       url: string
