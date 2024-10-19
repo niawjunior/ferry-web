@@ -33,6 +33,7 @@ const Banner = ({ title, description, image, path }: BannerProps) => {
           width: "100%",
           height: "100%",
           backgroundColor: "rgba(0, 0, 0, 0.5)", // Optional overlay for contrast
+          backdropFilter: "blur(2px)",
         }}
       ></Box>
 
