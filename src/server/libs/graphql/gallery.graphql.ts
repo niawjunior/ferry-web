@@ -30,7 +30,7 @@ export interface Gallery {
 }
 
 export const getGalleryList = async (): Promise<Gallery[]> => {
-  const galleryCollection = await fetchGraphQL(query)
+  const galleryCollection = await fetchGraphQL(query, false, false)
 
   return galleryCollection.data.galleryCollection.items
 }

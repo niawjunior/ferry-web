@@ -1,14 +1,19 @@
-import { DocumentNode } from "graphql/language/ast";
+import { DocumentNode } from "graphql/language/ast"
 
 export function getGqlString(doc: DocumentNode) {
-  return doc.loc?.source.body ?? "";
+  return doc.loc?.source.body ?? ""
 }
 
-export async function fetchGraphQL(query: DocumentNode, preview = false) {
+export async function fetchGraphQL(
+  query: DocumentNode,
+  preview = false,
+  isCache = true
+) {
   return fetch(
     `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
     {
       method: "POST",
+      cache: isCache ? "default" : "no-store",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${
@@ -19,5 +24,5 @@ export async function fetchGraphQL(query: DocumentNode, preview = false) {
       },
       body: JSON.stringify({ query: getGqlString(query) }),
     }
-  ).then((response) => response.json());
+  ).then((response) => response.json())
 }
