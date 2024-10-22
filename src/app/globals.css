@@ -18,3 +18,7 @@ a {
 [data-rmiz-modal-overlay="visible"] {
   background-color: rgba(0, 0, 0, 0.7) !important;
 }
+
+[data-rmiz-btn-unzoom] {
+  display: none;
+}
