@@ -5,7 +5,6 @@ const query = gql`
   query {
     highlightCollection(preview: false, limit: 1) {
       items {
-        _id
         title
         description1
         description2
@@ -20,7 +19,6 @@ const query = gql`
 `;
 
 export interface Highlight {
-  _id: string;
   title: string;
   description1: string;
   description2: string;

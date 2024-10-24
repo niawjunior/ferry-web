@@ -5,7 +5,6 @@ const query = gql`
   query {
     promotionCollection(preview: false, order: order_ASC) {
       items {
-        _id
         title
         originalPrice
         price
@@ -21,7 +20,6 @@ const query = gql`
 `;
 
 export interface Promotion {
-  _id: string;
   title: string;
   originalPrice: number;
   price: number;
