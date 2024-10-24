@@ -1,5 +1,5 @@
-import gql from "graphql-tag"
-import { fetchGraphQL } from "./fetch"
+import gql from "graphql-tag";
+import { fetchGraphQL } from "./fetch";
 
 const query = gql`
   query {
@@ -16,21 +16,24 @@ const query = gql`
       }
     }
   }
-`
+`;
 
 export interface Gallery {
-  name: string
-  author: string
+  name: string;
+  author: string;
   imageCollection: {
     items: {
-      url: string
-      title: string
-    }[]
-  }
+      url: string;
+      title: string;
+    }[];
+  };
 }
 
 export const getGalleryList = async (): Promise<Gallery[]> => {
-  const galleryCollection = await fetchGraphQL(query, false, false)
+  const galleryCollection = await fetchGraphQL(query, {
+    preview: false,
+    isCache: false,
+  });
 
-  return galleryCollection.data.galleryCollection.items
-}
+  return galleryCollection.data.galleryCollection.items;
+};

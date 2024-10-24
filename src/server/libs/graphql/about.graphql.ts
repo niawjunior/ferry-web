@@ -1,6 +1,6 @@
-import gql from "graphql-tag"
-import { fetchGraphQL } from "./fetch"
-import { Document } from "@contentful/rich-text-types"
+import gql from "graphql-tag";
+import { fetchGraphQL } from "./fetch";
+import { Document } from "@contentful/rich-text-types";
 
 const query = gql`
   query {
@@ -14,20 +14,23 @@ const query = gql`
       }
     }
   }
-`
+`;
 
 export interface About {
-  title: string
+  title: string;
   image: {
-    url: string
-  }
+    url: string;
+  };
   content: {
-    json: Document
-  }
+    json: Document;
+  };
 }
 
 export const getAbout = async (): Promise<About> => {
-  const about = await fetchGraphQL(query, false, false)
+  const about = await fetchGraphQL(query, {
+    isCache: false,
+    preview: false,
+  });
 
-  return about.data.about
-}
+  return about.data.about;
+};
