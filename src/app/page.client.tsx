@@ -19,10 +19,10 @@ export default function HomePageClient({
       <Box sx={{ backgroundColor: "#f2f2f2" }}>
         <Container sx={{ py: 2 }}>
           <Grid2 container spacing={2} justifyContent="center">
-            {promotions.map((promotion) => {
+            {promotions.map((promotion, index) => {
               return (
                 <Grid2
-                  key={promotion._id}
+                  key={index}
                   size={{
                     xs: 12,
                     sm: 6,
