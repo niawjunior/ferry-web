@@ -1,6 +1,6 @@
 "use client"
 import { Box, Typography, Button, Container } from "@mui/material"
-import { isiOS, isMobileDevice } from "../services"
+import { getFacebookPath, isFacebookLink, isMobileDevice } from "../services"
 interface BannerProps {
   title: string
   description: string
@@ -12,20 +12,16 @@ interface BannerProps {
 
 const Banner = ({ title, description, image, path }: BannerProps) => {
   const getFBLink = (path: string) => {
-    const fbAppiOSLink = "fb://page/100092418797356"
-    const fbAppAndroidLink = "fb://profile/100092418797356"
-    const fbWebLink = path
-
-    if (isMobileDevice()) {
-      // Attempt to open the Facebook app
-      if (isiOS()) {
-        window.location.href = fbAppiOSLink
+    if (isFacebookLink(path)) {
+      const getFBPath = getFacebookPath(path)
+      const fbAppLink = `fb://profile/${getFBPath}`
+      if (isMobileDevice()) {
+        window.location.href = fbAppLink
       } else {
-        window.location.href = fbAppAndroidLink
+        window.open(path, "_blank")
       }
     } else {
-      // On desktop, use the web URL directly
-      window.open(fbWebLink, "_blank")
+      window.open(path, "_blank")
     }
   }
   return (

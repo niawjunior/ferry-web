@@ -15,3 +15,12 @@ export function isiOS(): boolean {
   const parser = new UAParser(userAgent)
   return parser.getOS().name === "iOS"
 }
+
+export function isFacebookLink(link: string): boolean {
+  return link.includes("facebook")
+}
+
+export function getFacebookPath(link: string): string {
+  const splitUrl = link.split("/")
+  return splitUrl[splitUrl.length - 1]
+}
