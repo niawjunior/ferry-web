@@ -27,13 +27,15 @@
     "prisma": "^5.19.1",
     "react": "^18",
     "react-dom": "^18",
-    "react-medium-image-zoom": "^5.2.10"
+    "react-medium-image-zoom": "^5.2.10",
+    "ua-parser-js": "^1.0.39"
   },
   "devDependencies": {
     "@contentful/rich-text-types": "^16.8.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/ua-parser-js": "^0.7.39",
     "eslint": "^8",
     "eslint-config-next": "14.2.8",
     "typescript": "^5"

@@ -1,5 +1,6 @@
+"use client"
 import { Box, Typography, Button, Container } from "@mui/material"
-import Link from "next/link"
+import { isMobileDevice } from "../services"
 interface BannerProps {
   title: string
   description: string
@@ -10,6 +11,22 @@ interface BannerProps {
 }
 
 const Banner = ({ title, description, image, path }: BannerProps) => {
+  const getFBLink = (path: string) => {
+    const fbAppLink = "fb://page/100092418797356"
+    const fbWebLink = path
+
+    if (isMobileDevice()) {
+      // Attempt to open the Facebook app
+      setTimeout(() => {
+        // Redirect to the web URL as a fallback after a brief delay
+        window.location.href = fbWebLink
+      }, 1000) // Adjust the delay as needed
+      window.location.href = fbAppLink
+    } else {
+      // On desktop, use the web URL directly
+      window.open(fbWebLink, "_blank")
+    }
+  }
   return (
     <Box
       sx={{
@@ -53,9 +70,7 @@ const Banner = ({ title, description, image, path }: BannerProps) => {
             {description}
           </Typography>
           <Button
-            component={Link}
-            href={path}
-            target="_blank"
+            onClick={() => getFBLink(path || "")}
             size="large"
             variant="contained"
             color="warning" // Use MUI's 'warning' color for the orange look
