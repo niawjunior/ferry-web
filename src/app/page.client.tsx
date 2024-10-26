@@ -31,8 +31,10 @@ export default function HomePageClient({
                 >
                   <PricingCard
                     title={promotion.title}
-                    originalPrice={`${promotion.originalPrice} บาท`}
-                    price={`${promotion.price} บาท`}
+                    originalPrice={`${promotion.originalPrice.toLocaleString(
+                      "en-US"
+                    )} บาท`}
+                    price={`${promotion.price.toLocaleString("en-US")} บาท`}
                     features={promotion.features}
                     path={promotion.path}
                     facebookId={promotion.facebookId}
