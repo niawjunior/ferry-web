@@ -76,7 +76,7 @@ const TheMainHeader = () => {
     <Box
       component="header"
       sx={{
-        zIndex: 2,
+        zIndex: 3,
         width: "100%",
         position: "fixed",
         top: 0,
