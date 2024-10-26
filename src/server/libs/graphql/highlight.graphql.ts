@@ -1,5 +1,5 @@
-import gql from "graphql-tag";
-import { fetchGraphQL } from "./fetch";
+import gql from "graphql-tag"
+import { fetchGraphQL } from "./fetch"
 
 const query = gql`
   query {
@@ -16,21 +16,22 @@ const query = gql`
       }
     }
   }
-`;
+`
 
 export interface Highlight {
-  title: string;
-  description1: string;
-  description2: string;
+  title: string
+  description1: string
+  description2: string
   background: {
-    url: string;
-  };
-  actionText: string;
-  path: string;
+    url: string
+  }
+  actionText: string
+  path: string
+  facebookId?: string
 }
 
 export const getHighlightList = async (): Promise<Highlight[]> => {
-  const highlightCollection = await fetchGraphQL(query);
+  const highlightCollection = await fetchGraphQL(query)
 
-  return highlightCollection.data.highlightCollection.items ?? [];
-};
+  return highlightCollection.data.highlightCollection.items ?? []
+}

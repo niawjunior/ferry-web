@@ -35,6 +35,7 @@ export default function HomePageClient({
                     price={`${promotion.price} บาท`}
                     features={promotion.features}
                     path={promotion.path}
+                    facebookId={promotion.facebookId}
                     isTopPick={promotion.isTopPick}
                     backgroundUrl={promotion.background.url}
                     buttonText="จองเลย"
@@ -51,6 +52,7 @@ export default function HomePageClient({
         buttonColor="white"
         buttonText={highlight.actionText}
         path={highlight.path}
+        facebookId={highlight.facebookId}
       >
         <Typography variant="h5" component="h2" gutterBottom>
           {highlight.title}

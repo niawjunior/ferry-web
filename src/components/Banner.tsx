@@ -1,6 +1,6 @@
 "use client"
 import { Box, Typography, Button, Container } from "@mui/material"
-import { getFacebookPath, isFacebookLink, isMobileDevice } from "../services"
+import { isFacebookLink, isMobileDevice } from "../services"
 interface BannerProps {
   title: string
   description: string
@@ -8,13 +8,19 @@ interface BannerProps {
     url: string
   }
   path?: string
+  facebookId?: string
 }
 
-const Banner = ({ title, description, image, path }: BannerProps) => {
-  const getFBLink = (path: string) => {
+const Banner = ({
+  title,
+  description,
+  image,
+  path,
+  facebookId,
+}: BannerProps) => {
+  const getFBLink = (path: string, facebookId?: string) => {
     if (isFacebookLink(path)) {
-      const getFBPath = getFacebookPath(path)
-      const fbAppLink = `fb://profile/${getFBPath}`
+      const fbAppLink = `fb://profile/${facebookId}`
       if (isMobileDevice()) {
         window.location.href = fbAppLink
       } else {
@@ -67,7 +73,7 @@ const Banner = ({ title, description, image, path }: BannerProps) => {
             {description}
           </Typography>
           <Button
-            onClick={() => getFBLink(path || "")}
+            onClick={() => getFBLink(path || "", facebookId)}
             size="large"
             variant="contained"
             color="warning" // Use MUI's 'warning' color for the orange look

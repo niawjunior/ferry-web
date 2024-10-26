@@ -1,5 +1,5 @@
-import gql from "graphql-tag";
-import { fetchGraphQL } from "./fetch";
+import gql from "graphql-tag"
+import { fetchGraphQL } from "./fetch"
 
 const query = gql`
   query {
@@ -11,22 +11,24 @@ const query = gql`
           url
         }
         path
+        facebookId
       }
     }
   }
-`;
+`
 
 export interface Banner {
-  title: string;
-  description: string;
+  title: string
+  description: string
   image: {
-    url: string;
-  };
-  path?: string;
+    url: string
+  }
+  path?: string
+  facebookId?: string
 }
 
 export const getBannerList = async (): Promise<Banner[]> => {
-  const bannerCollection = await fetchGraphQL(query);
+  const bannerCollection = await fetchGraphQL(query)
 
-  return bannerCollection.data.bannerCollection.items;
-};
+  return bannerCollection.data.bannerCollection.items
+}

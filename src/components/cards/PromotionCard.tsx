@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   Paper,
   Button,
@@ -7,16 +7,17 @@ import {
   Grid2,
   Container,
   Box,
-} from "@mui/material";
-import Link from "next/link";
+} from "@mui/material"
+import { isFacebookLink, isMobileDevice } from "~/services"
 
 interface PromotionCardProps {
-  backgroundImage: string;
-  paperBgColor?: string;
-  buttonColor?: string;
-  buttonText: string;
-  path: string;
-  sx?: SxProps<Theme>;
+  backgroundImage: string
+  paperBgColor?: string
+  buttonColor?: string
+  buttonText: string
+  path: string
+  facebookId?: string
+  sx?: SxProps<Theme>
 }
 
 const PromotionCard: React.FC<React.PropsWithChildren<PromotionCardProps>> = ({
@@ -25,9 +26,22 @@ const PromotionCard: React.FC<React.PropsWithChildren<PromotionCardProps>> = ({
   buttonColor = "white",
   buttonText,
   path,
+  facebookId,
   sx = {},
   children,
 }) => {
+  const getFBLink = (path: string, facebookId?: string) => {
+    if (isFacebookLink(path)) {
+      const fbAppLink = `fb://profile/${facebookId}`
+      if (isMobileDevice()) {
+        window.location.href = fbAppLink
+      } else {
+        window.open(path, "_blank")
+      }
+    } else {
+      window.open(path, "_blank")
+    }
+  }
   return (
     <Box
       sx={{
@@ -64,9 +78,7 @@ const PromotionCard: React.FC<React.PropsWithChildren<PromotionCardProps>> = ({
             >
               {children}
               <Button
-                LinkComponent={Link}
-                href={path}
-                target="_blank"
+                onClick={() => getFBLink(path || "", facebookId)}
                 variant="outlined"
                 sx={{
                   color: buttonColor,
@@ -81,7 +93,7 @@ const PromotionCard: React.FC<React.PropsWithChildren<PromotionCardProps>> = ({
         </Grid2>
       </Container>
     </Box>
-  );
-};
+  )
+}
 
-export default PromotionCard;
+export default PromotionCard

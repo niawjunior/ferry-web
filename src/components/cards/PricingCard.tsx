@@ -12,7 +12,7 @@ import {
   Stack,
   colors,
 } from "@mui/material"
-import Link from "next/link"
+import { isFacebookLink, isMobileDevice } from "~/services"
 
 type PricingCardProps = {
   title: string
@@ -23,6 +23,7 @@ type PricingCardProps = {
   path: string
   backgroundUrl: string
   isTopPick?: boolean
+  facebookId?: string
 }
 
 const PricingCard: React.FC<PricingCardProps> = ({
@@ -34,7 +35,20 @@ const PricingCard: React.FC<PricingCardProps> = ({
   path,
   backgroundUrl,
   isTopPick = false,
+  facebookId,
 }) => {
+  const getFBLink = (path: string, facebookId?: string) => {
+    if (isFacebookLink(path)) {
+      const fbAppLink = `fb://profile/${facebookId}`
+      if (isMobileDevice()) {
+        window.location.href = fbAppLink
+      } else {
+        window.open(path, "_blank")
+      }
+    } else {
+      window.open(path, "_blank")
+    }
+  }
   return (
     <Card
       sx={{
@@ -110,9 +124,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
         </CardContent>
         <CardActions sx={{ mt: "auto" }}>
           <Button
-            LinkComponent={Link}
-            target="_blank"
-            href={path}
+            onClick={() => getFBLink(path || "", facebookId)}
             variant="contained"
             color="primary"
             fullWidth

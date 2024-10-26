@@ -35,6 +35,7 @@ export default async function Home() {
         description={banner.description}
         image={banner.image}
         path={banner.path}
+        facebookId={banner.facebookId}
       />
       <HomePageClient promotions={promotions} highlight={highlight} />
       <HowItWorks />
