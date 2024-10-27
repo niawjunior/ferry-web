@@ -49,8 +49,10 @@ export default function HomePageClient({
         </Container>
       </Box>
       <PromotionCard
-        backgroundImage={highlight.background.url}
-        paperBgColor="#B56576"
+        backgroundImages={highlight.backgroundCollection.items.map((item) => {
+          return item.url
+        })}
+        paperBgColor="secondary.main"
         buttonColor="white"
         buttonText={highlight.actionText}
         path={highlight.path}

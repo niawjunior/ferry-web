@@ -29,6 +29,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-medium-image-zoom": "^5.2.10",
+    "swiper": "^11.1.14",
     "ua-parser-js": "^1.0.39"
   },
   "devDependencies": {

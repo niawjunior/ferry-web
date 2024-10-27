@@ -9,8 +9,10 @@ const query = gql`
         description1
         description2
         actionText
-        background {
-          url
+        backgroundCollection {
+          items {
+            url
+          }
         }
         path
       }
@@ -22,8 +24,10 @@ export interface Highlight {
   title: string
   description1: string
   description2: string
-  background: {
-    url: string
+  backgroundCollection: {
+    items: {
+      url: string
+    }[]
   }
   actionText: string
   path: string

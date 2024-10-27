@@ -1,17 +1,12 @@
 import React from "react"
-import {
-  Paper,
-  Button,
-  SxProps,
-  Theme,
-  Grid2,
-  Container,
-  Box,
-} from "@mui/material"
+import { Paper, Button, SxProps, Theme, Grid2, Box } from "@mui/material"
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/css"
+import { Autoplay } from "swiper/modules" // Removed Navigation
 import { isFacebookLink, isMobileDevice } from "~/services"
 
 interface PromotionCardProps {
-  backgroundImage: string
+  backgroundImages: string[]
   paperBgColor?: string
   buttonColor?: string
   buttonText: string
@@ -21,7 +16,7 @@ interface PromotionCardProps {
 }
 
 const PromotionCard: React.FC<React.PropsWithChildren<PromotionCardProps>> = ({
-  backgroundImage,
+  backgroundImages,
   paperBgColor = "secondary.main",
   buttonColor = "white",
   buttonText,
@@ -42,27 +37,57 @@ const PromotionCard: React.FC<React.PropsWithChildren<PromotionCardProps>> = ({
       window.open(path, "_blank")
     }
   }
+
   return (
     <Box
       sx={{
-        display: "flex",
-        alignItems: "center",
-        backgroundColor: "transparent",
-        justifyContent: { xs: "center", md: "space-between" },
-        minHeight: 600,
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
+        position: "relative",
+        height: "500px",
+
         ...sx,
       }}
     >
-      <Container>
-        <Grid2 container>
-          <Grid2 size={{ xs: 12, md: 6 }} />
+      {/* Swiper for multiple background images */}
+      <Swiper
+        modules={[Autoplay]}
+        autoplay={{ delay: 3000 }}
+        loop
+        style={{ width: "100%", height: "100%" }}
+      >
+        {backgroundImages.map((image, index) => (
+          <SwiperSlide key={index}>
+            <Box
+              sx={{
+                width: "100%",
+                height: "100%",
+                backgroundImage: `url(${image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Promotion Card Content on top of Swiper */}
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "70px",
+          zIndex: 2, // Ensures the content stays on top of the images
+          display: "flex",
+          justifyContent: "flex-end",
+          width: "100%",
+          px: 4,
+        }}
+      >
+        <Grid2 container justifyContent="center">
           <Grid2
-            size={{ xs: 12, md: 6 }}
+            size={{ xs: 12, md: 8 }}
             sx={{
               display: "flex",
+              width: "100%",
+              minWidth: "100%",
               justifyContent: "center",
             }}
           >
@@ -74,6 +99,11 @@ const PromotionCard: React.FC<React.PropsWithChildren<PromotionCardProps>> = ({
                 borderRadius: "20px",
                 backgroundColor: paperBgColor,
                 color: "white",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                textAlign: "center",
+                maxWidth: "500px",
               }}
             >
               {children}
@@ -91,7 +121,7 @@ const PromotionCard: React.FC<React.PropsWithChildren<PromotionCardProps>> = ({
             </Paper>
           </Grid2>
         </Grid2>
-      </Container>
+      </Box>
     </Box>
   )
 }
