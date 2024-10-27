@@ -78,7 +78,7 @@ const PromotionCard: React.FC<React.PropsWithChildren<PromotionCardProps>> = ({
           display: "flex",
           justifyContent: "flex-end",
           width: "100%",
-          px: 4,
+          px: 2,
         }}
       >
         <Grid2 container justifyContent="center">
@@ -95,7 +95,10 @@ const PromotionCard: React.FC<React.PropsWithChildren<PromotionCardProps>> = ({
               elevation={3}
               sx={{
                 width: "100%",
-                padding: 3,
+                padding: {
+                  xs: 2,
+                  md: 3,
+                },
                 borderRadius: "20px",
                 backgroundColor: paperBgColor,
                 color: "white",
@@ -103,7 +106,10 @@ const PromotionCard: React.FC<React.PropsWithChildren<PromotionCardProps>> = ({
                 flexDirection: "column",
                 justifyContent: "center",
                 textAlign: "center",
-                maxWidth: "500px",
+                maxWidth: {
+                  xs: "100%",
+                  md: "500px",
+                },
               }}
             >
               {children}
