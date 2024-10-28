@@ -1,25 +1,25 @@
-"use client"
-import { Box, IconButton, Typography, useMediaQuery } from "@mui/material"
-import ImageList from "@mui/material/ImageList"
-import ImageListItem from "@mui/material/ImageListItem"
-import ImageListItemBar from "@mui/material/ImageListItemBar"
-import InfoIcon from "@mui/icons-material/Info"
-import Zoom from "react-medium-image-zoom"
-import "react-medium-image-zoom/dist/styles.css"
-import Image from "next/image"
+"use client";
+import { Box, IconButton, Typography, useMediaQuery } from "@mui/material";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
+import InfoIcon from "@mui/icons-material/Info";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import Image from "next/image";
 
 interface GalleryProps {
   images: {
-    url: string
-    title: string
-    author: string
-  }[]
+    url: string;
+    title: string;
+    author: string;
+  }[];
 }
 const Gallery = ({ images }: GalleryProps) => {
-  const matches = useMediaQuery("(min-width:600px)")
+  const matches = useMediaQuery("(min-width:600px)");
 
   return (
-    <Box sx={{ py: 8 }}>
+    <Box sx={{ py: 8, bgcolor: "#f8f8f8" }}>
       <Typography variant="h4" align="center" gutterBottom>
         ภาพบรรยากาศ สุดแสนวิเศษ
       </Typography>
@@ -54,7 +54,7 @@ const Gallery = ({ images }: GalleryProps) => {
         </ImageList>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default Gallery
+export default Gallery;
