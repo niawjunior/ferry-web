@@ -105,6 +105,7 @@ const Banner = ({
               sx={{
                 fontWeight: "bold !important",
                 mb: 2,
+                mt: { xs: 4, sm: 4, md: 0 },
                 typography: { xs: "h4", sm: "h4", md: "h2" },
               }}
             >
