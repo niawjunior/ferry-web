@@ -118,7 +118,10 @@ const Banner = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            <Typography variant="h6" sx={{ mb: 4, opacity: 0.9 }}>
+            <Typography
+              variant="h6"
+              sx={{ mb: 4, opacity: 0.9, fontWeight: 200 }}
+            >
               {description}
             </Typography>
           </motion.div>
