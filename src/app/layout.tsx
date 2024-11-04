@@ -26,6 +26,14 @@ export const metadata: Metadata = {
     description:
       "สัมผัสประสบการณ์ล่องเรือสุดหรูบนสายน้AccessType ไปพร้อมกับเรา ที่ Fluke Journey",
     siteName: "ล่องเรือเจ้าพระยา by Fluke Journey",
+    images: [
+      {
+        url: "https://www.flukejourney.com/banner-og.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "ล่องเรือเจ้าพระยา by Fluke Journey",
+      },
+    ],
   },
 }
 
