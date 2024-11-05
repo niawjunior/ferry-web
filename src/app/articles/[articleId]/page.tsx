@@ -1,18 +1,57 @@
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
-import {
-  getArticleById,
-  getArticleList,
-} from "~/server/libs/graphql/article.graphql";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher"
+import { getArticleById } from "~/server/libs/graphql/article.graphql"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import Image from "next/image"
+import { Typography, Box, Container } from "@mui/material"
 
 interface ArticleProps {
   params: Params & {
-    articleId: string;
-  };
+    articleId: string
+  }
 }
 
 export default async function Article({ params: { articleId } }: ArticleProps) {
-  const article = await getArticleById(articleId);
-  console.log("article :>> ", article);
-  const articleList = await getArticleList(4);
-  console.log("articleList :>> ", articleList);
+  const article = await getArticleById(articleId)
+  console.log(article.author.sys)
+  if (!article) {
+    return <Typography variant="h6">Article not found</Typography>
+  }
+
+  return (
+    <Container maxWidth="md" sx={{ pt: 14, pb: 4 }}>
+      <Typography variant="h4" gutterBottom>
+        {article.title}
+      </Typography>
+      <Typography variant="body1" color="text.secondary" paragraph>
+        {article.shortDescription}
+      </Typography>
+      {article.coverImage && (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: 3,
+            width: "100%",
+          }}
+        >
+          <Image
+            src={article.coverImage.url}
+            alt={article.coverImage.title}
+            width={800}
+            height={200}
+            layout="responsive"
+            style={{
+              objectFit: "cover",
+              borderRadius: "8px",
+              maxWidth: "100%",
+              maxHeight: "300px",
+            }}
+          />
+        </Box>
+      )}
+      <Box sx={{ typography: "body1" }}>
+        {documentToReactComponents(article?.content?.json)}
+      </Box>
+    </Container>
+  )
 }
