@@ -12,7 +12,6 @@ interface ArticleProps {
 
 export default async function Article({ params: { articleId } }: ArticleProps) {
   const article = await getArticleById(articleId)
-  console.log(article.author.sys)
   if (!article) {
     return <Typography variant="h6">Article not found</Typography>
   }
