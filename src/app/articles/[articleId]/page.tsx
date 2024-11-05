@@ -48,7 +48,19 @@ export default async function Article({ params: { articleId } }: ArticleProps) {
           />
         </Box>
       )}
-      <Box sx={{ typography: "body1" }}>
+      <Box
+        sx={{
+          typography: "body1",
+          "& > p": {
+            mb: 6, // Space below each <p> tag
+            fontSize: "1.25em",
+            color: "text.secondary",
+          },
+          "& > h4": {
+            fontSize: "1.6em",
+          },
+        }}
+      >
         {documentToReactComponents(article?.content?.json)}
       </Box>
     </Container>
