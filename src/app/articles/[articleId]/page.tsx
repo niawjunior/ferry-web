@@ -51,6 +51,9 @@ export default async function Article({ params: { articleId } }: ArticleProps) {
       <Box
         sx={{
           typography: "body1",
+          "& > *": {
+            wordBreak: "break-word",
+          },
           "& > p": {
             mb: 6, // Space below each <p> tag
             fontSize: "1.25em",
