@@ -1,5 +1,5 @@
-import gql from "graphql-tag";
-import { fetchGraphQL } from "./fetch";
+import gql from "graphql-tag"
+import { fetchGraphQL } from "./fetch"
 
 const query = gql`
   query GetArticleById($limit: Int) {
@@ -26,7 +26,7 @@ const query = gql`
       }
     }
   }
-`;
+`
 
 const getArticleByIdQuery = gql`
   query GetArticleById($id: String!) {
@@ -53,28 +53,28 @@ const getArticleByIdQuery = gql`
       }
     }
   }
-`;
+`
 
 export interface Article {
   sys: {
-    id: string;
-  };
-  title: string;
+    id: string
+  }
+  title: string
   coverImage: {
-    title: string;
-    url: string;
-  };
-  shortDescription: string;
+    title: string
+    url: string
+  }
+  shortDescription: string
   content: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    json: any;
-  };
+    json: any
+  }
   author: {
-    __typename: string;
+    __typename: string
     sys: {
-      id: string;
-    };
-  };
+      id: string
+    }
+  }
 }
 
 export const getArticleList = async (limit?: number): Promise<Article[]> => {
@@ -82,17 +82,18 @@ export const getArticleList = async (limit?: number): Promise<Article[]> => {
     variables: {
       limit: limit,
     },
-  });
+  })
 
-  return articleCollection.data.articleCollection.items ?? [];
-};
+  return articleCollection.data.articleCollection.items ?? []
+}
 
 export const getArticleById = async (id: string): Promise<Article> => {
   const articleCollection = await fetchGraphQL(getArticleByIdQuery, {
+    isCache: false,
     variables: {
       id,
     },
-  });
+  })
 
-  return (articleCollection.data.articleCollection.items ?? [])[0];
-};
+  return (articleCollection.data.articleCollection.items ?? [])[0]
+}
