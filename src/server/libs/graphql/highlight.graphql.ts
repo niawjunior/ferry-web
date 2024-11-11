@@ -15,6 +15,7 @@ const query = gql`
           }
         }
         path
+        facebookId
       }
     }
   }
@@ -31,7 +32,7 @@ export interface Highlight {
   }
   actionText: string
   path: string
-  facebookId?: string
+  facebookI?: string
 }
 
 export const getHighlightList = async (): Promise<Highlight[]> => {
