@@ -32,7 +32,7 @@ export interface Highlight {
   }
   actionText: string
   path: string
-  facebookI?: string
+  facebookId?: string
 }
 
 export const getHighlightList = async (): Promise<Highlight[]> => {
