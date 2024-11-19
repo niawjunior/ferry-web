@@ -27,8 +27,8 @@ const AboutPage = async () => {
         </Grid2>
         <Grid2 size={{ xs: 12, md: 8 }}>
           <Typography
-            variant="h2"
-            component="h1"
+            variant="h3"
+            component="h3"
             align="center"
             sx={{ fontWeight: 700, mt: 4, color: "primary.main" }}
           >

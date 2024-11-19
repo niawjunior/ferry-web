@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { Menu } from "@mui/icons-material";
+import { Menu } from "@mui/icons-material"
 import {
   Avatar,
   Box,
@@ -10,11 +10,11 @@ import {
   ListItem,
   ListItemText,
   Stack,
-} from "@mui/material";
-import { useState } from "react";
-import NextLink from "next/link";
-import Sidebar from "./Sidebar";
-import { usePathname } from "next/navigation";
+} from "@mui/material"
+import { useState } from "react"
+import NextLink from "next/link"
+import Sidebar from "./Sidebar"
+import { usePathname } from "next/navigation"
 
 const menuItems = [
   {
@@ -26,18 +26,22 @@ const menuItems = [
     label: "เกี่ยวกับเรา",
   },
   {
+    href: "/certificates",
+    label: "ใบรับรอง",
+  },
+  {
     href: "/faq",
     label: "FAQ",
   },
-];
+]
 
 const TheMainHeader = () => {
-  const [isSidebar, setSidebarOpen] = useState(false);
-  const pathname = usePathname();
+  const [isSidebar, setSidebarOpen] = useState(false)
+  const pathname = usePathname()
 
   const handleSidebarToggle = () => {
-    setSidebarOpen(!isSidebar);
-  };
+    setSidebarOpen(!isSidebar)
+  }
 
   const menuContent = (
     <List
@@ -48,7 +52,7 @@ const TheMainHeader = () => {
       }}
     >
       {menuItems.map((item, index) => {
-        const isActive = pathname === item.href;
+        const isActive = pathname === item.href
 
         return (
           <Link key={index} component={NextLink} href={item.href} passHref>
@@ -71,10 +75,10 @@ const TheMainHeader = () => {
               <ListItemText primary={item.label} />
             </ListItem>
           </Link>
-        );
+        )
       })}
     </List>
-  );
+  )
 
   return (
     <Box
@@ -132,13 +136,13 @@ const TheMainHeader = () => {
                 >
                   {menuItem.label}
                 </Link>
-              );
+              )
             })}
           </Stack>
         </Stack>
       </Container>
     </Box>
-  );
-};
+  )
+}
 
-export default TheMainHeader;
+export default TheMainHeader
