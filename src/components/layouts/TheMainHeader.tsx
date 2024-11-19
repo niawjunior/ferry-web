@@ -25,6 +25,10 @@ const menuItems = [
     href: "/about",
     label: "เกี่ยวกับเรา",
   },
+  {
+    href: "/faq",
+    label: "FAQ",
+  },
 ];
 
 const TheMainHeader = () => {
