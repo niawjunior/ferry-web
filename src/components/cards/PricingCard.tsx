@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import {
   Card,
   CardContent,
@@ -11,20 +11,20 @@ import {
   Box,
   Stack,
   colors,
-} from "@mui/material"
-import { isFacebookLink, isMobileDevice } from "~/services"
+} from "@mui/material";
+import { isFacebookLink, isMobileDevice } from "~/services";
 
 type PricingCardProps = {
-  title: string
-  originalPrice: string
-  price: string
-  features: string[]
-  buttonText: string
-  path: string
-  backgroundUrl: string
-  isTopPick?: boolean
-  facebookId?: string
-}
+  title: string;
+  originalPrice?: string;
+  price: string;
+  features: string[];
+  buttonText: string;
+  path: string;
+  backgroundUrl: string;
+  isTopPick?: boolean;
+  facebookId?: string;
+};
 
 const PricingCard: React.FC<PricingCardProps> = ({
   title,
@@ -39,16 +39,16 @@ const PricingCard: React.FC<PricingCardProps> = ({
 }) => {
   const getFBLink = (path: string, facebookId?: string) => {
     if (isFacebookLink(path)) {
-      const fbAppLink = `fb://profile/${facebookId}`
+      const fbAppLink = `fb://profile/${facebookId}`;
       if (isMobileDevice()) {
-        window.location.href = fbAppLink
+        window.location.href = fbAppLink;
       } else {
-        window.open(path, "_blank")
+        window.open(path, "_blank");
       }
     } else {
-      window.open(path, "_blank")
+      window.open(path, "_blank");
     }
-  }
+  };
   return (
     <Card
       sx={{
@@ -105,6 +105,15 @@ const PricingCard: React.FC<PricingCardProps> = ({
                 {originalPrice}
               </Typography>
             )}
+            {!originalPrice && (
+              <Typography
+                sx={{
+                  color: colors.grey[400],
+                }}
+              >
+                ราคาปกติ
+              </Typography>
+            )}
             <Typography
               sx={{ fontSize: "2rem", color: "primary.main", lineHeight: 1 }}
             >
@@ -134,7 +143,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
         </CardActions>
       </Box>
     </Card>
-  )
-}
+  );
+};
 
-export default PricingCard
+export default PricingCard;

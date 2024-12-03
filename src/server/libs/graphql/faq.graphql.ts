@@ -29,7 +29,9 @@ export interface FAQ {
 }
 
 export const getFAQList = async (): Promise<FAQ[]> => {
-  const faqCollection = await fetchGraphQL(query);
+  const faqCollection = await fetchGraphQL(query, {
+    isCache: false,
+  });
 
   return faqCollection.data.faqCollection.items;
 };

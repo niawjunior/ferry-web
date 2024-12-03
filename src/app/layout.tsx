@@ -5,6 +5,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 import "./globals.css";
+import '@leenguyen/react-flip-clock-countdown/dist/index.css';
 import theme from "~/theme";
 import TheMainLayout from "~/components/layouts/TheMainLayout";
 
