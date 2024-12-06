@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Box,
-  Container,
-  Grid2,
-  Stack,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Box, Container, Grid2, Typography, useTheme } from "@mui/material";
 import PricingCard from "~/components/cards/PricingCard";
 import PromotionCard from "~/components/cards/PromotionCard";
 import { Highlight, Promotion } from "~/server/libs/graphql";
@@ -46,22 +39,32 @@ export default function HomePageClient({
       <Box sx={{ backgroundColor: "#f2f2f2" }}>
         <Container sx={{ py: 2 }}>
           {isShowPromotionPeriod && (
-            <Stack direction="row" gap={2}>
-              <Typography color="primary" variant="h3">
-                {promotionPeriod.title}
-              </Typography>
-              <FlipClockCountdown
-                labels={["วัน", "ชั่วโมง", "นาที", "วินาที"]}
-                digitBlockStyle={{
-                  background: theme.palette.secondary.main,
-                  fontSize: "2rem",
-                  width: "2.5rem",
-                  height: "3rem",
-                }}
-                to={promotionPeriod.endTime}
-                onComplete={handleHidePromotionPeriod}
-              />
-            </Stack>
+            <Grid2 container spacing={2}>
+              <Grid2
+                size={{ xs: 12, md: "auto" }}
+                sx={{ display: "flex", justifyContent: "center" }}
+              >
+                <Typography color="primary" variant="h3">
+                  {promotionPeriod.title}
+                </Typography>
+              </Grid2>
+              <Grid2
+                sx={{ display: "flex", justifyContent: "center" }}
+                size={{ xs: 12, md: "auto" }}
+              >
+                <FlipClockCountdown
+                  labels={["วัน", "ชั่วโมง", "นาที", "วินาที"]}
+                  digitBlockStyle={{
+                    background: theme.palette.secondary.main,
+                    fontSize: "1.7rem",
+                    width: "2.25rem",
+                    height: "2.75rem",
+                  }}
+                  to={promotionPeriod.endTime}
+                  onComplete={handleHidePromotionPeriod}
+                />
+              </Grid2>
+            </Grid2>
           )}
           <Grid2 container spacing={2} justifyContent="center">
             {promotions.map((promotion, index) => {
